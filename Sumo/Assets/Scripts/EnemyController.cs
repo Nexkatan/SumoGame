@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
     private GameObject player;
     private Rigidbody enemyRb;
 
-    public PlayerController playerScript;
+    public OnePlayerController playerScript;
 
     void Start()
     {

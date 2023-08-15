@@ -21,7 +21,7 @@ public class PowerUpRotate : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player1") || collision.CompareTag("Player2"))
         {
             StopCoroutine("PowerupIndicatorCountDown");
             hasPowerup = true;

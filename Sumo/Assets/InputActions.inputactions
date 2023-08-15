@@ -1,0 +1,66 @@
+{
+    "name": "InputActions",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "1d7f0e3b-2535-4056-9373-d5f752c85b66",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Value",
+                    "id": "77177dcb-46be-4882-ad66-42434c92f7e2",
+                    "expectedControlType": "Key",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "New action1",
+                    "type": "Button",
+                    "id": "019d74ff-7b2d-41e4-b306-28eca066becd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f6f319a6-361e-467d-84f5-10f649922fae",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "387d248d-cbf7-46a4-b202-8a7f2c5a1369",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "New control scheme",
+                    "action": "New action1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "New control scheme",
+            "bindingGroup": "New control scheme",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

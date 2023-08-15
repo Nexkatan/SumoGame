@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2065412551886086886}
   - component: {fileID: 6755421872888880365}
   - component: {fileID: 1959574053140969234}
-  - component: {fileID: 5503773234029149720}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -34,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7587956418157857835
 MeshFilter:
@@ -134,21 +133,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5503773234029149720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6487973793507568302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6b60bce8821b4c4dadc4b73a5f2ee9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PowerUpIndicator: {fileID: 0}
-  moveSpeed: 1
-  hasPowerup: 0
-  powerupStrength: 15
-  powerupTime: 7
-  gameOver: 0
