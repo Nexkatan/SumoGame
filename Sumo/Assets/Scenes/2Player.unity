@@ -382,9 +382,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 166108061}
   player2: {fileID: 203583036}
+  respawnHeight: {x: 0, y: 5, z: 0}
   acidMat: {fileID: 2100000, guid: a0e12fbf9ad82f84ba64ac790d38e785, type: 2}
   bouncyMat: {fileID: 2100000, guid: 9c0880e4cd8a8704e82b6940624b569a, type: 2}
   teleMat: {fileID: 2100000, guid: e68f77e240a7f8643b5cc4253dc37516, type: 2}
+  bouncePower: 2000
+  spawnManager: {fileID: 744020777}
+  gameManager: {fileID: 1886708801}
 --- !u!1 &120341378
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,10 +623,11 @@ MonoBehaviour:
   WallInlayz: {fileID: 1032889079}
   lightningSpark: {fileID: 1181806111}
   spawnManager: {fileID: 744020777}
+  gameManager: {fileID: 1886708801}
   respawnHeight: {x: 0, y: 5, z: 0}
   gravityModifier: 2
   moveSpeed: 800
-  impactStrength: 15
+  impactStrength: 2
   powerupTime: 7
   bounceForce: 2000
   doubleSize: {x: 2, y: 2, z: 2}
@@ -718,7 +723,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166108060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: -4.1473055}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -896,10 +901,11 @@ MonoBehaviour:
   WallInlayz: {fileID: 1032889079}
   lightningSpark: {fileID: 515443288}
   spawnManager: {fileID: 744020777}
+  gameManager: {fileID: 1886708801}
   respawnHeight: {x: 0, y: 5, z: 0}
   gravityModifier: 2
-  moveSpeed: 1
-  impactStrength: 15
+  moveSpeed: 800
+  impactStrength: 2
   powerupTime: 7
   bounceForce: 2000
   doubleSize: {x: 2, y: 2, z: 2}
@@ -1022,7 +1028,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203583035}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: -4.1473055}
+  m_LocalPosition: {x: -5, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1321,9 +1327,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 166108061}
   player2: {fileID: 203583036}
+  respawnHeight: {x: 0, y: 5, z: 0}
   acidMat: {fileID: 2100000, guid: a0e12fbf9ad82f84ba64ac790d38e785, type: 2}
   bouncyMat: {fileID: 2100000, guid: 9c0880e4cd8a8704e82b6940624b569a, type: 2}
   teleMat: {fileID: 2100000, guid: e68f77e240a7f8643b5cc4253dc37516, type: 2}
+  bouncePower: 2000
+  spawnManager: {fileID: 744020777}
+  gameManager: {fileID: 1886708801}
 --- !u!1 &381155716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,9 +1674,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 166108061}
   player2: {fileID: 203583036}
+  respawnHeight: {x: 0, y: 5, z: 0}
   acidMat: {fileID: 2100000, guid: a0e12fbf9ad82f84ba64ac790d38e785, type: 2}
   bouncyMat: {fileID: 2100000, guid: 9c0880e4cd8a8704e82b6940624b569a, type: 2}
   teleMat: {fileID: 2100000, guid: e68f77e240a7f8643b5cc4253dc37516, type: 2}
+  bouncePower: 2000
+  spawnManager: {fileID: 744020777}
+  gameManager: {fileID: 1886708801}
 --- !u!1 &647861203 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2788182860624790410, guid: 1f14a379fd236c44cab1dd53f7afa495, type: 3}
@@ -1869,9 +1883,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 166108061}
   player2: {fileID: 203583036}
+  respawnHeight: {x: 0, y: 5, z: 0}
   acidMat: {fileID: 2100000, guid: a0e12fbf9ad82f84ba64ac790d38e785, type: 2}
   bouncyMat: {fileID: 2100000, guid: 9c0880e4cd8a8704e82b6940624b569a, type: 2}
   teleMat: {fileID: 2100000, guid: e68f77e240a7f8643b5cc4253dc37516, type: 2}
+  bouncePower: 2000
+  spawnManager: {fileID: 744020777}
+  gameManager: {fileID: 1886708801}
 --- !u!1 &935847609
 GameObject:
   m_ObjectHideFlags: 0
@@ -3121,6 +3139,56 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6231866089379444039, guid: 4c60dafdd99d0e14f99a7137f770cea6, type: 3}
   m_PrefabInstance: {fileID: 2103246954}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1886708800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1886708802}
+  - component: {fileID: 1886708801}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1886708801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886708800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be233b21dc3f2894e8f254efb13da6eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasTelePowerup: 0
+  hasAcidPowerup: 0
+  hasBouncyWallPowerup: 0
+  gameOver: 0
+  player1: {fileID: 166108061}
+  player2: {fileID: 203583036}
+--- !u!4 &1886708802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886708800}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.5843267, y: -14.557051, z: 8.517939}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2030872648 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2745886107646005850, guid: 2072914a68396154591490a3e6e01ca9, type: 3}
@@ -3265,9 +3333,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 166108061}
   player2: {fileID: 203583036}
+  respawnHeight: {x: 0, y: 5, z: 0}
   acidMat: {fileID: 2100000, guid: a0e12fbf9ad82f84ba64ac790d38e785, type: 2}
   bouncyMat: {fileID: 2100000, guid: 9c0880e4cd8a8704e82b6940624b569a, type: 2}
   teleMat: {fileID: 2100000, guid: e68f77e240a7f8643b5cc4253dc37516, type: 2}
+  bouncePower: 2000
+  spawnManager: {fileID: 744020777}
+  gameManager: {fileID: 1886708801}
 --- !u!1 &2068441337 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6817938884659243945, guid: 3bc675b8d8244724e8307f7ea3f3e741, type: 3}
@@ -3464,9 +3536,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 166108061}
   player2: {fileID: 203583036}
+  respawnHeight: {x: 0, y: 5, z: 0}
   acidMat: {fileID: 2100000, guid: a0e12fbf9ad82f84ba64ac790d38e785, type: 2}
   bouncyMat: {fileID: 2100000, guid: 9c0880e4cd8a8704e82b6940624b569a, type: 2}
   teleMat: {fileID: 2100000, guid: e68f77e240a7f8643b5cc4253dc37516, type: 2}
+  bouncePower: 2000
+  spawnManager: {fileID: 744020777}
+  gameManager: {fileID: 1886708801}
 --- !u!1001 &2103246954
 PrefabInstance:
   m_ObjectHideFlags: 0

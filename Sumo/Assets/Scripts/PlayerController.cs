@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
     public SpawnManager spawnManager;
 
+    public GameManager gameManager;
+
     public Vector3 respawnHeight = new Vector3(0, 5, 0);
 
     public float gravityModifier = 2;
@@ -84,11 +86,11 @@ public class PlayerController : MonoBehaviour
             if (WallInlayz.activeInHierarchy)
             {
                 StopAllCoroutines();
-                hasTelePowerup = false;
-                hasBouncyWallPowerup = false;
+                gameManager.hasTelePowerup = false;
+                gameManager.hasBouncyWallPowerup = false;
             }
             wavePUsed = true;
-            hasAcidPowerup = true;
+            gameManager.hasAcidPowerup = true;
             WallInlayz.SetActive(true);
             StartCoroutine("AcidWallPowerDown");
         }
@@ -97,11 +99,11 @@ public class PlayerController : MonoBehaviour
             if (WallInlayz.activeInHierarchy)
             {
                 StopAllCoroutines();
-                hasAcidPowerup = false;
-                hasBouncyWallPowerup = false;
+                gameManager.hasAcidPowerup = false;
+                gameManager.hasBouncyWallPowerup = false;
             }
             wavePUsed = true;
-            hasTelePowerup = true;
+            gameManager.hasTelePowerup = true;
             WallInlayz.SetActive(true);
             StartCoroutine("TeleportWallPowerDown");
         }
@@ -110,11 +112,11 @@ public class PlayerController : MonoBehaviour
             if (WallInlayz.activeInHierarchy)
             {
                 StopAllCoroutines();
-                hasTelePowerup = false;
-                hasAcidPowerup = false;
+                gameManager.hasTelePowerup = false;
+                gameManager.hasAcidPowerup = false;
             }
             wavePUsed = true;
-            hasBouncyWallPowerup = true;
+            gameManager.hasBouncyWallPowerup = true;
             WallInlayz.SetActive(true);
             StartCoroutine("BouncyWallPowerDown");
         }
@@ -144,24 +146,6 @@ public class PlayerController : MonoBehaviour
                 enemyRigB.AddForce(awayFromPlayer * impactStrength / 10, ForceMode.Impulse);
             }
         }
-
-        if (collision.gameObject.CompareTag("WallInlay"))
-        {
-            if (hasTelePowerup)
-            {
-                TeleOppositeWall(collision);
-            }
-            if (hasBouncyWallPowerup)
-            {
-                playerRb.AddExplosionForce(bounceForce, collision.contacts[0].point, 5);
-            }
-            if (hasAcidPowerup)
-            {
-                Die();
-                Respawn();
-            }
-
-        }
     }
 
     void HidePowerup(Collider other)
@@ -169,15 +153,6 @@ public class PlayerController : MonoBehaviour
         other.gameObject.GetComponent<MeshRenderer>().enabled = false;
         other.gameObject.GetComponent<Rigidbody>().transform.position = new Vector3(0, -5, 0);
     }
-
-    void TeleOppositeWall(Collision collision)
-    {
-        Vector3 currentVel = playerRb.velocity;
-        Vector3 oppositePos = Vector3.zero - new Vector3(playerRb.transform.position.x, 0, playerRb.transform.position.z) * 0.9f;
-        playerRb.transform.position = oppositePos;
-        playerRb.AddExplosionForce(currentVel.magnitude, oppositePos, 1);
-    }
-
 
     public void Die()
     {
@@ -192,13 +167,15 @@ public class PlayerController : MonoBehaviour
             playerRb.angularVelocity = Vector3.zero;
             playerRb.velocity = Vector3.zero;
             death = false;
+        if (!gameManager.gameOver)
+        {
             playerRb.transform.position = newPos + respawnHeight;
+        }
     }
 
     IEnumerator DoublePowerDown()
     {
         yield return new WaitForSeconds(powerupTime);
-        hasDoublePowerup = false;
         BackToNormal();
     }
 
@@ -213,19 +190,19 @@ public class PlayerController : MonoBehaviour
     IEnumerator AcidWallPowerDown()
     {
         yield return new WaitForSeconds(powerupTime);
-        hasAcidPowerup = false;
+        gameManager.hasAcidPowerup = false;
         WallInlayz.SetActive(false);
     }
     IEnumerator BouncyWallPowerDown()
     {
         yield return new WaitForSeconds(powerupTime);
-        hasBouncyWallPowerup = false;
+        gameManager.hasBouncyWallPowerup = false;
         WallInlayz.SetActive(false);
     }
     IEnumerator TeleportWallPowerDown()
     {
         yield return new WaitForSeconds(powerupTime);
-        hasTelePowerup = false;
+        gameManager.hasTelePowerup = false;
         WallInlayz.SetActive(false);
     }
     IEnumerator BalloonPowerDown()
