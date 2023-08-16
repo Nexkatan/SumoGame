@@ -377,10 +377,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 112484229}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7a92f7f7e3c4140822c3bd2a12f48a, type: 3}
+  m_Script: {fileID: 11500000, guid: f7e9d4e3c85462946828c7b4fe754d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player1: {fileID: 166108061}
+  player2: {fileID: 203583036}
   acidMat: {fileID: 2100000, guid: a0e12fbf9ad82f84ba64ac790d38e785, type: 2}
   bouncyMat: {fileID: 2100000, guid: 9c0880e4cd8a8704e82b6940624b569a, type: 2}
   teleMat: {fileID: 2100000, guid: e68f77e240a7f8643b5cc4253dc37516, type: 2}
@@ -1315,10 +1316,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 377182578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7a92f7f7e3c4140822c3bd2a12f48a, type: 3}
+  m_Script: {fileID: 11500000, guid: f7e9d4e3c85462946828c7b4fe754d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player1: {fileID: 166108061}
+  player2: {fileID: 203583036}
   acidMat: {fileID: 2100000, guid: a0e12fbf9ad82f84ba64ac790d38e785, type: 2}
   bouncyMat: {fileID: 2100000, guid: 9c0880e4cd8a8704e82b6940624b569a, type: 2}
   teleMat: {fileID: 2100000, guid: e68f77e240a7f8643b5cc4253dc37516, type: 2}
@@ -1657,10 +1659,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 638170216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7a92f7f7e3c4140822c3bd2a12f48a, type: 3}
+  m_Script: {fileID: 11500000, guid: f7e9d4e3c85462946828c7b4fe754d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player1: {fileID: 166108061}
+  player2: {fileID: 203583036}
   acidMat: {fileID: 2100000, guid: a0e12fbf9ad82f84ba64ac790d38e785, type: 2}
   bouncyMat: {fileID: 2100000, guid: 9c0880e4cd8a8704e82b6940624b569a, type: 2}
   teleMat: {fileID: 2100000, guid: e68f77e240a7f8643b5cc4253dc37516, type: 2}
@@ -1861,10 +1864,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 776261975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7a92f7f7e3c4140822c3bd2a12f48a, type: 3}
+  m_Script: {fileID: 11500000, guid: f7e9d4e3c85462946828c7b4fe754d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player1: {fileID: 166108061}
+  player2: {fileID: 203583036}
   acidMat: {fileID: 2100000, guid: a0e12fbf9ad82f84ba64ac790d38e785, type: 2}
   bouncyMat: {fileID: 2100000, guid: 9c0880e4cd8a8704e82b6940624b569a, type: 2}
   teleMat: {fileID: 2100000, guid: e68f77e240a7f8643b5cc4253dc37516, type: 2}
@@ -3256,10 +3260,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2058365107}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7a92f7f7e3c4140822c3bd2a12f48a, type: 3}
+  m_Script: {fileID: 11500000, guid: f7e9d4e3c85462946828c7b4fe754d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player1: {fileID: 166108061}
+  player2: {fileID: 203583036}
   acidMat: {fileID: 2100000, guid: a0e12fbf9ad82f84ba64ac790d38e785, type: 2}
   bouncyMat: {fileID: 2100000, guid: 9c0880e4cd8a8704e82b6940624b569a, type: 2}
   teleMat: {fileID: 2100000, guid: e68f77e240a7f8643b5cc4253dc37516, type: 2}
@@ -3454,10 +3459,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2100954401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7a92f7f7e3c4140822c3bd2a12f48a, type: 3}
+  m_Script: {fileID: 11500000, guid: f7e9d4e3c85462946828c7b4fe754d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player1: {fileID: 166108061}
+  player2: {fileID: 203583036}
   acidMat: {fileID: 2100000, guid: a0e12fbf9ad82f84ba64ac790d38e785, type: 2}
   bouncyMat: {fileID: 2100000, guid: 9c0880e4cd8a8704e82b6940624b569a, type: 2}
   teleMat: {fileID: 2100000, guid: e68f77e240a7f8643b5cc4253dc37516, type: 2}

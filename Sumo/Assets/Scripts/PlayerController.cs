@@ -81,6 +81,12 @@ public class PlayerController : MonoBehaviour
 
         else if (other.CompareTag("AcidWallPowerup"))
         {
+            if (WallInlayz.activeInHierarchy)
+            {
+                StopAllCoroutines();
+                hasTelePowerup = false;
+                hasBouncyWallPowerup = false;
+            }
             wavePUsed = true;
             hasAcidPowerup = true;
             WallInlayz.SetActive(true);
@@ -88,6 +94,12 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("TeleportPowerup"))
         {
+            if (WallInlayz.activeInHierarchy)
+            {
+                StopAllCoroutines();
+                hasAcidPowerup = false;
+                hasBouncyWallPowerup = false;
+            }
             wavePUsed = true;
             hasTelePowerup = true;
             WallInlayz.SetActive(true);
@@ -95,6 +107,12 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("BouncyWallPowerup"))
         {
+            if (WallInlayz.activeInHierarchy)
+            {
+                StopAllCoroutines();
+                hasTelePowerup = false;
+                hasAcidPowerup = false;
+            }
             wavePUsed = true;
             hasBouncyWallPowerup = true;
             WallInlayz.SetActive(true);
@@ -140,6 +158,7 @@ public class PlayerController : MonoBehaviour
             if (hasAcidPowerup)
             {
                 Die();
+                Respawn();
             }
 
         }
@@ -181,7 +200,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(powerupTime);
         hasDoublePowerup = false;
         BackToNormal();
-        WallInlayz.SetActive(false);
     }
 
     void BackToNormal()

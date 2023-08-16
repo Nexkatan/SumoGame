@@ -27,23 +27,18 @@ public class SpawnManager : MonoBehaviour
     {
             int lastRandom = randomPowerup;
             randomPowerup = Random.Range(0, powerupRange);
-        Debug.Log(lastRandom);
-        Debug.Log(randomPowerup);
-        if (randomPowerup == lastRandom) 
+        if (randomPowerup == lastRandom)
         {
-            if (randomPowerup == powerupRange)
-            {
-                randomPowerup--;
-            }
-            else
-            {
-                randomPowerup++;
-            }
+            randomPowerup++;
+            randomPowerup %= powerupRange;
         }
-        Debug.Log("New Random is " + randomPowerup);
         GameObject activeGameObject = powerupPrefabs[randomPowerup];
         activeGameObject.transform.position = GenerateSpawnPos();
         activeGameObject.GetComponent<MeshRenderer>().enabled = true;
+    }
+    int Mod(int a, int n)
+    {
+        return ((a % n) + n) % n;
     }
 }
 

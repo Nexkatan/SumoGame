@@ -21,23 +21,13 @@ public class TwoPlayerSpawn : SpawnManager
         spawnPowerUp();
         StartCoroutine(TwoPlayerSpawnPowerup());
     }
-    void Update()
-    {
-        if (player1Deaths > 5)
-        {
-            Debug.Log("Player 2 wins!");
-        }
-        if (player2Deaths > 5)
-        {
-            Debug.Log("Player 1 wins!");
-        }
-    }
+
 
     IEnumerator TwoPlayerSpawnPowerup () 
     {
         while (true) 
         { 
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(5);
             spawnPowerUp();
         }
     }
