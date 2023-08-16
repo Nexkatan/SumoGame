@@ -621,7 +621,7 @@ MonoBehaviour:
   spawnManager: {fileID: 744020777}
   respawnHeight: {x: 0, y: 5, z: 0}
   gravityModifier: 2
-  moveSpeed: 1
+  moveSpeed: 800
   impactStrength: 15
   powerupTime: 7
   bounceForce: 2000
