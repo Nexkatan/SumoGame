@@ -53,8 +53,8 @@ public class PlayerController : MonoBehaviour
     {
         if (playerRb.position.y < -2)
         {
-            Die();
-            Respawn();
+                
+                Die();
         }
 
     }
@@ -156,21 +156,24 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        BackToNormal();
-        death = true;
-        deathCount++;
+        if (!gameManager.gameOver)
+        {
+            deathCount++;
+            Respawn();
+            gameManager.UpdateScore();
+            BackToNormal();
+            death = true;
+        }
     }
 
     public void Respawn()
     {
+        
             Vector3 newPos = spawnManager.GenerateSpawnPos();
             playerRb.angularVelocity = Vector3.zero;
             playerRb.velocity = Vector3.zero;
             death = false;
-        if (!gameManager.gameOver)
-        {
             playerRb.transform.position = newPos + respawnHeight;
-        }
     }
 
     IEnumerator DoublePowerDown()

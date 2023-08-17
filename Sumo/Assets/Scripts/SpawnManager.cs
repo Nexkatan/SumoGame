@@ -15,6 +15,8 @@ public class SpawnManager : MonoBehaviour
 
     public GameObject[] powerupPrefabs;
 
+    public GameManager gameManager;
+
     public Vector3 GenerateSpawnPos ()
     {
         float spawnRangeX = Random.Range(-spawnRange, spawnRange);
@@ -25,6 +27,7 @@ public class SpawnManager : MonoBehaviour
 
     public void spawnPowerUp()
     {
+        if (gameManager.isGameActive) { 
             int lastRandom = randomPowerup;
             randomPowerup = Random.Range(0, powerupRange);
         if (randomPowerup == lastRandom)
@@ -35,6 +38,7 @@ public class SpawnManager : MonoBehaviour
         GameObject activeGameObject = powerupPrefabs[randomPowerup];
         activeGameObject.transform.position = GenerateSpawnPos();
         activeGameObject.GetComponent<MeshRenderer>().enabled = true;
+        }
     }
     int Mod(int a, int n)
     {

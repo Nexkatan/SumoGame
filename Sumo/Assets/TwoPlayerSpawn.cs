@@ -11,9 +11,6 @@ public class TwoPlayerSpawn : SpawnManager
     public PlayerController player1;
     public PlayerController player2;
 
-    public int player1Deaths = 0;
-    public int player2Deaths = 0;
-
 
     void Start()
     {
