@@ -17,6 +17,8 @@ public class SpawnManager : MonoBehaviour
 
     public GameManager gameManager;
 
+    public int waveNumber = 1;
+
     public Vector3 GenerateSpawnPos ()
     {
         float spawnRangeX = Random.Range(-spawnRange, spawnRange);
@@ -40,9 +42,14 @@ public class SpawnManager : MonoBehaviour
         activeGameObject.GetComponent<MeshRenderer>().enabled = true;
         }
     }
-    int Mod(int a, int n)
+
+    public void DespawnAllPowerups()
     {
-        return ((a % n) + n) % n;
+        for (int i = 0; i < powerupRange; i++)
+        {
+            powerupPrefabs[i].GetComponent<MeshRenderer>().enabled = false;
+            powerupPrefabs[i].GetComponent<Rigidbody>().transform.position = new Vector3(0, -5, 0);
+        }
     }
-}
+   }
 

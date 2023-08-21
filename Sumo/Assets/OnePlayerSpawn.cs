@@ -9,7 +9,7 @@ public class OnePlayerSpawn : SpawnManager
     public GameObject playerPrefab;
     public PlayerController player;
 
-    public int waveNumber = 1;
+    
     public int levelLoader = 1;
 
     void Start()
@@ -18,7 +18,7 @@ public class OnePlayerSpawn : SpawnManager
         spawnPowerUp();
     }
 
-    private void Update()
+    public void Update()
     {
         enemyCount = FindObjectsOfType<EnemyController>().Length;
         if (enemyCount == 0)
@@ -30,6 +30,7 @@ public class OnePlayerSpawn : SpawnManager
             else
             {
                 waveNumber++;
+                gameManager.UpdateScore();
                 levelLoader++;
                 SpawnWave(waveNumber);
                 OnePlayerSpawnPowerUp();

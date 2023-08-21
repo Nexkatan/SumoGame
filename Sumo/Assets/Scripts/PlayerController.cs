@@ -154,6 +154,8 @@ public class PlayerController : MonoBehaviour
         other.gameObject.GetComponent<Rigidbody>().transform.position = new Vector3(0, -5, 0);
     }
 
+
+
     public void Die()
     {
         if (!gameManager.gameOver)

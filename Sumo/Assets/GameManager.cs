@@ -16,71 +16,97 @@ public class GameManager : MonoBehaviour
 
     public PlayerController player1;
     public int player1Deaths;
-    private Rigidbody rb1;
     public PlayerController player2;
     public int player2Deaths;
-    private Rigidbody rb2;
 
+    
+
+    public GameObject Walls;
+    public SpawnManager spawnManager;
+    public int waveNum;
 
     public TextMeshProUGUI player1ScoreText;
     public TextMeshProUGUI player2ScoreText;
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI titleText;
+    public GameObject GameplayButtons;
 
     private void Start()
     {
-        rb1 = player1.GetComponent<Rigidbody>();
-        rb2 = player2.GetComponent<Rigidbody>();
         UpdateScore();
     }
     void Update()
     {
-        if (player1.deathCount > 4)
+        if (player1.deathCount == 5)
         {
             GameOver();
         }
-        if (player2.deathCount > 4)
+        if (player2 != null && player2.deathCount == 5)
         {
             GameOver();
         }
     }
 
-    public void StartGame()
+    public void Start1PlayerGame()
     {
-        UpdateScore();
-        player1.deathCount = 0;
-        player2.deathCount = 0;
-        rb1.angularVelocity = Vector3.zero;
-        rb1.velocity = Vector3.zero;
-        rb1.transform.position = new Vector3(5, 2, 0);
-        rb2.angularVelocity = Vector3.zero;
-        rb2.velocity = Vector3.zero;
-        rb2.transform.position = new Vector3(-5, 2, 0);
-        titleText.gameObject.SetActive(false);
-        gameOverText.gameObject.SetActive(false);
+        SceneManager.LoadScene("Level 1");
         isGameActive = true;
+        gameOver = false;
+    }
+    public void Start2PlayerGame()
+    {
+        SceneManager.LoadScene("2Player");
+        if (GameplayButtons != null)
+        {
+            GameplayButtons.SetActive(true);
+        }
+        isGameActive = true;
+        gameOver = false;
     }
 
     public void UpdateScore()
     {
-        player1Deaths = player1.deathCount;
-        player2Deaths = player2.deathCount;
-        player1ScoreText.text = "Player 1 Deaths: " + player1Deaths;
-        player2ScoreText.text = "Player 2 Deaths: " + player2Deaths;
+        if (player1ScoreText != null)
+        {
+            waveNum = spawnManager.waveNumber;
+            string waves = "Wave: " + waveNum;
+            string lives = "Lives: " + (5 - player1.deathCount);
+            string bothLines = waves + "\n" + lives;
+            player1ScoreText.text = bothLines;
+            if (player2ScoreText != null)
+            {
+                player1Deaths = player1.deathCount;
+                player1ScoreText.text = "Player 1 Deaths: " + player1Deaths;
+                player2Deaths = player2.deathCount;
+                player2ScoreText.text = "Player 2 Deaths: " + player2Deaths;
+            }
+        }
     }
 
     public void GameOver()
     {
+       
         if (isGameActive) 
-        { 
-        gameOverText.gameObject.SetActive(true);
-        gameOver = true;
-        isGameActive = false;
+        {
+            Debug.Log("GameOver");
+            gameOverText.gameObject.SetActive(true);
+            gameOver = true;
+            isGameActive = false;
+            hasTelePowerup = false;
+            hasAcidPowerup = false;
+            hasBouncyWallPowerup = false;
+            spawnManager.DespawnAllPowerups();
+            player1.WallInlayz.SetActive(false);
+            GameplayButtons.SetActive(false);
+            foreach (Transform child in Walls.transform)
+            {
+                child.localScale = new Vector3(14.7f, 1.3f, .2f);
+            }
         }
     }
 
-    public void RestartGame()
+    public void HomeButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Home");
     }
 }

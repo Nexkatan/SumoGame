@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallInlaysTwoPlayer : MonoBehaviour
+public class WallInlays : MonoBehaviour
 {
-    public Player1Controller player1;
-    public Player2Controller player2;
+    public PlayerController player1;
+    public PlayerController player2;
 
 
 
@@ -34,11 +34,12 @@ public class WallInlaysTwoPlayer : MonoBehaviour
         {
             GetComponent<MeshRenderer>().material = teleMat;
         }
+        
     }
     private void OnCollisionEnter(Collision collision)
     {
         Rigidbody collisionRb = collision.gameObject.GetComponent<Rigidbody>();
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Enemy")) 
         {
             if (gameManager.hasTelePowerup)
             {
@@ -67,9 +68,12 @@ public class WallInlaysTwoPlayer : MonoBehaviour
 
     public void Die(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Player"))
+        {
         BackToNormal(collision);
         collision.gameObject.GetComponent<PlayerController>().deathCount++;
         Debug.Log(collision.gameObject.GetComponent<PlayerController>().deathCount);
+        }
     }
 
     public void Respawn(Collision collision)
@@ -83,10 +87,10 @@ public class WallInlaysTwoPlayer : MonoBehaviour
 
     void BackToNormal(Collision collision)
     {
-        Rigidbody collisionRb = collision.gameObject.GetComponent<Rigidbody>();
-        collision.gameObject.GetComponent<PlayerController>().hasDoublePowerup = false;
-        collision.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-        collisionRb.mass = 1;
-        collision.gameObject.GetComponent<PlayerController>().doubleMassSpeed = 1;
+            Rigidbody collisionRb = collision.gameObject.GetComponent<Rigidbody>();
+            collision.gameObject.GetComponent<PlayerController>().hasDoublePowerup = false;
+            collision.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            collisionRb.mass = 1;
+            collision.gameObject.GetComponent<PlayerController>().doubleMassSpeed = 1;
     }
 }
