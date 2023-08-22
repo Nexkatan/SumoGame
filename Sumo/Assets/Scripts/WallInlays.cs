@@ -52,6 +52,7 @@ public class WallInlays : MonoBehaviour
             if (gameManager.hasAcidPowerup)
             {
                 Die(collision);
+                gameManager.UpdateScore();
                 Respawn(collision);
             }
         }
