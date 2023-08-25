@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 respawnHeight = new Vector3(0, 5, 0);
 
-    public float gravityModifier = 2;
     public float moveSpeed = 1;
     public float impactStrength = 15;
     public float powerupTime = 7;
@@ -45,8 +44,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        Physics.gravity = new Vector3(0, -9.8f, 0);
-        Physics.gravity *= gravityModifier;
     }
 
     void FixedUpdate()
@@ -188,7 +185,7 @@ public class PlayerController : MonoBehaviour
     {
         hasDoublePowerup = false;
         transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-        playerRb.mass = 1;
+        playerRb.mass = 0.6f;
         doubleMassSpeed = 1;
     }
 

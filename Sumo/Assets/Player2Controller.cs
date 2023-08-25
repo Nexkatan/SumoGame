@@ -18,7 +18,7 @@ public class Player2Controller : PlayerController
 
     void Update()
     {
-        float verticalInput = Input.GetAxis("Vertical2");
+        float verticalInput = Input.GetAxis("Vertical3");
         player2Rb.AddForce(focalPoint.transform.forward * moveSpeed * verticalInput * doubleMassSpeed * Time.deltaTime);
         float horizontalInput = Input.GetAxis("Horizontal2");
         player2Rb.AddForce(focalPoint.transform.right * moveSpeed * horizontalInput * doubleMassSpeed * Time.deltaTime);

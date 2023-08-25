@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
@@ -64,6 +65,11 @@ public class GameManager : MonoBehaviour
         gameOver = false;
     }
 
+    public void Start2CharGame() 
+    {
+        SceneManager.LoadScene("Sumo Physics");
+    }
+
     public void UpdateScore()
     {
         if (player1ScoreText != null)
@@ -76,9 +82,13 @@ public class GameManager : MonoBehaviour
             if (player2ScoreText != null)
             {
                 player1Deaths = player1.deathCount;
-                player1ScoreText.text = "Player 1 Deaths: " + player1Deaths;
+                string player1text = "Player 1";
+                string deaths1 = "Deaths: " + player1Deaths;
+                player1ScoreText.text = player1text + "\n" + deaths1;
                 player2Deaths = player2.deathCount;
-                player2ScoreText.text = "Player 2 Deaths: " + player2Deaths;
+                string player2text = "Player 2";
+                string deaths2 = "Deaths: " + player2Deaths;
+                player2ScoreText.text = player2text + "\n" + deaths2;
             }
         }
     }

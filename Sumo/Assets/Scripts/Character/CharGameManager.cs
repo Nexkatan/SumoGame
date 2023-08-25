@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CharGameManager : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class CharGameManager : MonoBehaviour
     public CharController player2;
     public int player2Deaths;
 
-    public GameObject Walls;
+    [HideInInspector] public GameObject Walls;
 
     public TextMeshProUGUI player1ScoreText;
     public TextMeshProUGUI player2ScoreText;
@@ -46,9 +47,13 @@ public class CharGameManager : MonoBehaviour
             if (player2ScoreText != null)
             {
                 player1Deaths = player1.deathCount;
-                player1ScoreText.text = "Player 1 Deaths: " + player1Deaths;
+                string player1text = "Player 1";
+                string deaths1 = "Deaths: " + player1Deaths;
+                player1ScoreText.text = player1text + "\n" + deaths1;
                 player2Deaths = player2.deathCount;
-                player2ScoreText.text = "Player 2 Deaths: " + player2Deaths;
+                string player2text = "Player 2";
+                string deaths2 = "Deaths: " + player2Deaths;
+                player2ScoreText.text = player2text + "\n" + deaths2;
             }
         }
     }
@@ -68,5 +73,15 @@ public class CharGameManager : MonoBehaviour
                 child.localScale = new Vector3(14.7f, 1.3f, .2f);
             }
         }
+    }
+
+    public void HomeButton()
+    {
+        SceneManager.LoadScene("Home");
+    }
+
+    public void Start2CharGame()
+    {
+        SceneManager.LoadScene("Sumo Physics");
     }
 }

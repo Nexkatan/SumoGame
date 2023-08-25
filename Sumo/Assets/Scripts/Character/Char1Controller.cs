@@ -1,11 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Char1Controller : CharController
 {
-
-
+   
     void FixedUpdate()
     {
         if (justJumped)
@@ -16,7 +16,7 @@ public class Char1Controller : CharController
         
         Move();
 
-        if (rb.transform.position.y < -2)
+        if (rb.transform.position.y < -5)
         {
             Die();
         }
@@ -30,14 +30,15 @@ public class Char1Controller : CharController
         }
     }
 
-
     void Jump()
     {
         if (onGround)
         {
             onGround = false;
+            Vector3 jumpDirection = transform.up;
             rb.centerOfMass = new Vector3(0, 1, 0);
-            rb.AddRelativeForce(Vector3.up * jumpPower, ForceMode.Impulse);
+            rb.angularVelocity = Vector3.zero;
+            rb.AddForce(jumpDirection * jumpPower, ForceMode.Impulse);
             rb.AddForce(Vector3.up * (jumpPower / 5), ForceMode.Impulse);
             playerAnim.SetTrigger("Jump_trig");
         }
@@ -46,14 +47,20 @@ public class Char1Controller : CharController
     void Move()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        rb.AddRelativeTorque(Vector3.up * horizRotateSpeed * horizontalInput * Time.deltaTime, ForceMode.Impulse);
-        float verticalInput = 0;
-        if (Input.GetKeyDown(KeyCode.DownArrow)) 
+        rb.AddRelativeTorque(Vector3.up * horizRotateSpeed * horizontalInput * Time.deltaTime, ForceMode.Acceleration);
+        float verticalInput = Input.GetAxis("Vertical1");
+        rb.AddRelativeTorque(Vector3.right * verticRotateSpeed * verticalInput * Time.deltaTime, ForceMode.Acceleration);
+        if (Input.GetAxis("Horizontal") != 0)
         {
-            verticalInput++;
-            Debug.Log(verticalInput);
-            rb.AddRelativeTorque(-Vector3.up * Time.deltaTime, ForceMode.Impulse);
+            isSpinning = true;
+        }
+        else
+        {
+            isSpinning = false;
+            Vector3 normalAng = rb.angularVelocity.normalized;
+            rb.AddTorque(-new Vector3(0, normalAng.y, 0) * slowDownPerSecond, ForceMode.Force);
         }
     }
 
+    
 }

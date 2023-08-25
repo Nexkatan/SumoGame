@@ -1843,7 +1843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -2917,8 +2917,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1050, y: -48}
-  m_SizeDelta: {x: 300, y: 50}
+  m_AnchoredPosition: {x: 760, y: -40}
+  m_SizeDelta: {x: 120, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1356826982
 MonoBehaviour:
@@ -2967,11 +2967,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_fontSizeMin: 1
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
@@ -3003,7 +3003,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -93.206024, y: 0, z: 84.605225, w: 0}
+  m_margin: {x: -93.206024, y: 0, z: 93.36513, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3041,8 +3041,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387603521}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -118.18884, y: 53.867676, z: -90.748474}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -85, y: 36, z: -90.748474}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 399423784}
@@ -3058,6 +3058,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1959574053140969234, guid: bde29518ef532034b853e0bdb0071837, type: 3}
+      propertyPath: m_Mass
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 5381413473262306953, guid: bde29518ef532034b853e0bdb0071837, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -3716,7 +3720,6 @@ MonoBehaviour:
   spawnManager: {fileID: 744020777}
   gameManager: {fileID: 556791837}
   respawnHeight: {x: 0, y: 5, z: 0}
-  gravityModifier: 2
   moveSpeed: 1
   impactStrength: 15
   powerupTime: 7
